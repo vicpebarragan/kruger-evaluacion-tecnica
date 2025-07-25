@@ -18,7 +18,7 @@ services:
   backend:
     build:
       context: ./backend
-    container_name: kruger-back
+    container_name: kruger-test-back
     ports:
       - "8080:8080"
     environment:
@@ -36,6 +36,25 @@ services:
     networks:
       - kruger-test-network
     
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:8080/ktestfull
+    container_name: kruger-test-front
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/ktestfull
+      - PORT=3001
+      - HOSTNAME=0.0.0.0
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
+    networks:
+      - kruger-test-network
+    restart: unless-stopped
 networks:
   kruger-test-network:
     driver: bridge
