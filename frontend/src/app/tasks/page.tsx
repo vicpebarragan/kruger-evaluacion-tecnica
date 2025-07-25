@@ -250,11 +250,11 @@ export default function TasksPage() {
         },
         {
             title: 'Proyecto',
-            dataIndex: 'projectId',
-            key: 'projectId',
-            render: (projectId: number) => {
-                const project = projects.find(p => p.id === projectId);
-                return project ? project.name : 'N/A';
+            dataIndex: 'project',
+            key: 'project',
+            render: (project: number) => {
+                const projectE = projects.find(p => p.id === project);
+                return projectE ? projectE.name : 'N/A';
             },
         },
         {
