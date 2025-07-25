@@ -36,6 +36,7 @@ docker-compose down
 ### Requisitos previos
 - Java 17+
 - Maven 3.8+
+- Base de datos postgresSQL
 
 ### Ejecución local
 
@@ -44,6 +45,7 @@ docker-compose down
    git clone https://github.com/tu-usuario/kruger-evaluacion-tecnica.git
    cd kruger-evaluacion-tecnica/backend
    ```
+2. Configurar las variables de entorno en el archivo `application.properties`
 
 2. Ejecuta la aplicación:
    ```bash
@@ -51,10 +53,10 @@ docker-compose down
    ```
    La API estará disponible en: `http://localhost:8080/ktestfull`
 
-3. Accede a la documentación Swagger:
+4. Accede a la documentación Swagger:
    - [http://localhost:8080/ktestfull/swagger-ui.html](http://localhost:8080/ktestfull/swagger-ui.html)
 
-#### (Opcional) Ejecución con Docker
+#### (Opcional) Ejecución con Docker (previamente configurar variables de entorno o incluir en comando docker)
 ```bash
 docker build -t kruger-backend .
 docker run -p 8080:8080 kruger-backend
